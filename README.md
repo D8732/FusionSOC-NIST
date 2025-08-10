@@ -1,14 +1,11 @@
 # FusionSOC–NIST
 
-Extend FusionSOC with **NIST SP 800-53 Rev.5** and **NIST CSF** mappings.
+Controls used to help mitigate FusionSOC with **NIST SP 800-53 Rev.5** and **NIST CSF** mappings.
 
 ## Structure
 - kql
 - detections
 - controls
-- evidence
-- workbooks
-- playbooks
 - policies
 - docs
 
@@ -50,7 +47,7 @@ AC-2 ensures you tightly govern the full lifecycle of identities—creation, mod
 
 This Control helps  makes sure your environment is continuously observed for suspicious activity—not just logging, but collecting, analyzing, and acting on signals.
 
-For phishing emails multiple controls can be of use i'll just name a few 
+**Phishing emails multiple controls can be of use i'll just name a few.**
 
 **SI-4 – System Monitoring :  Sentinel rules that detect brand-impersonation, suspicious links, and anomalous sender.**
 
@@ -61,3 +58,6 @@ For phishing emails multiple controls can be of use i'll just name a few
 **AT-2 – Security Awareness Training: Simulated phishing and just-in-time user education to reduce click-through.**
 
 <img width="1360" height="767" alt="Suspicious email" src="https://github.com/user-attachments/assets/b1548447-bdeb-4441-9576-7cbadc34f0d5" />
+
+<img width="1333" height="636" alt="Virustotal" src="https://github.com/user-attachments/assets/7c32d8a2-538c-4f8b-aa60-037c061e6e4e" />
+
