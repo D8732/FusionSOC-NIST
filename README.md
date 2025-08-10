@@ -24,11 +24,8 @@ AC-7 (Unsuccessful Logon Attempts)
  <img width="1339" height="652" alt="AWS Detection rule failed logon" src="https://github.com/user-attachments/assets/20896e0f-a862-472a-97a5-c62ddc4750a7" />
  - <img width="1329" height="640" alt="Successful and Unsuccessful logon attempts" src="https://github.com/user-attachments/assets/706a8842-191f-4f16-9249-b555e39f3406" />
 
- This Control is important because it Monitors for bursts of failed sign-ins (e.g., ≥5 Windows 4625 events in 15 minutes and AWS ConsoleLogin failures) and raises an incident, grouped by account/host/IP.
- Catches brute-force/password-spray early. Repeated failures are a classic precursor to compromise.
-
+ AC-7 Control is important because it Monitors for bursts of failed sign-ins (e.g., ≥5 Windows 4625 events in 15 minutes and AWS ConsoleLogin failures) and raises an incident, grouped by account/host/IP.Catches brute-force/password-spray early. Repeated failures are a classic precursor to compromise.
 Reduces attacker dwell time. Fast alerts let you lock the account or block the source before a successful guess.
-
 Protects high-value identities. Correlating by user and source IP highlights targeted accounts.
 
 
@@ -43,7 +40,18 @@ AWS CreateUser/DeleteUser → Sentinel alert → incident shows target user → 
 This Control is important because 
 AC-2 ensures you tightly govern the full lifecycle of identities—creation, modification, disabling, and deletion—so only the right people have the right access at the right time. It reduces risk from orphaned/stale accounts and privilege creep, strengthens auditability for compliance, and provides clear hooks for detections
 
-SI-4 (System Monitoring)
+SI-4 (System Monitoring) This Control Covers Command line activity
 
  Execute Powershell command
 - <img width="1095" height="337" alt="Powershell command generate logs" src="https://github.com/user-attachments/assets/7d31a064-f40c-4c11-bc16-6706924ebee8" />
+
+This Control helps  makes sure your environment is continuously observed for suspicious activity—not just logging, but collecting, analyzing, and acting on signals.
+
+For phishing emails multiple controls can be of use i'll just name a few 
+
+SI-4 – System Monitoring :  Sentinel rules that detect brand-impersonation, suspicious links, and anomalous sender.
+IR-4 – Incident Handling: Automation rules/playbooks to quarantine messages, notify users, enrich with VirusTotal, and assign an owner.
+SI-3 – Malicious Code Protection: Email security gateway / AV scanning of attachments and URLs (detonation/sandboxing).
+AT-2 – Security Awareness Training: Simulated phishing and just-in-time user education to reduce click-through.
+
+<img width="1360" height="767" alt="Suspicious email" src="https://github.com/user-attachments/assets/b1548447-bdeb-4441-9576-7cbadc34f0d5" />
