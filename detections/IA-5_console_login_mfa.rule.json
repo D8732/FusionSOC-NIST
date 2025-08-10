@@ -1,0 +1,19 @@
+{
+  "kind": "Scheduled",
+  "properties": {
+    "displayName": "IA-5 \u2013 ConsoleLogin with MFAUsed context",
+    "description": "Expose MFAUsed for triage.",
+    "severity": "Informational",
+    "enabled": true,
+    "query": "AWSCloudTrail\n| where EventName == \"ConsoleLogin\" and EventSource == \"signin.amazonaws.com\"\n| extend Status = tostring(parse_json(ResponseElements).ConsoleLogin)\n| extend MFAUsed = tostring(parse_json(AdditionalEventData).MFAUsed)\n| project TimeGenerated, Status, MFAUsed, UserIdentityArn, SourceIpAddress, AWSRegion\n| order by TimeGenerated desc\n",
+    "queryFrequency": "PT1H",
+    "queryPeriod": "PT1H",
+    "triggerOperator": "GreaterThan",
+    "triggerThreshold": 0,
+    "eventGroupingSettings": {
+      "aggregationKind": "SingleAlert"
+    },
+    "tactics": [],
+    "techniques": []
+  }
+}

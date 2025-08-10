@@ -1,0 +1,6 @@
+AWSCloudTrail
+| where EventName == "ConsoleLogin" and EventSource == "signin.amazonaws.com"
+| extend Status = tostring(parse_json(ResponseElements).ConsoleLogin)
+| where Status == "Failure"
+| project TimeGenerated, Status, UserIdentityUserName, SourceIpAddress, AWSRegion
+| order by TimeGenerated desc

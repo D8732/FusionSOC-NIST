@@ -1,0 +1,19 @@
+{
+  "kind": "Scheduled",
+  "properties": {
+    "displayName": "AC-2 \u2013 AWS IAM user created or deleted",
+    "description": "Detects IAM user lifecycle via CloudTrail.",
+    "severity": "Medium",
+    "enabled": true,
+    "query": "let lookback = 24h;\nAWSCloudTrail\n| where TimeGenerated > ago(lookback)\n| where EventSource == \"iam.amazonaws.com\"\n| where EventName in (\"CreateUser\",\"DeleteUser\")\n| extend TargetUser = tostring(parse_json(RequestParameters).userName)\n| project TimeGenerated, EventName, TargetUser, UserIdentityArn, SourceIpAddress, AWSRegion\n| order by TimeGenerated desc\n",
+    "queryFrequency": "PT1H",
+    "queryPeriod": "PT1H",
+    "triggerOperator": "GreaterThan",
+    "triggerThreshold": 0,
+    "eventGroupingSettings": {
+      "aggregationKind": "SingleAlert"
+    },
+    "tactics": [],
+    "techniques": []
+  }
+}

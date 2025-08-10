@@ -1,0 +1,8 @@
+let lookback = 24h;
+AWSCloudTrail
+| where TimeGenerated > ago(lookback)
+| where EventSource == "iam.amazonaws.com"
+| where EventName in ("CreateUser","DeleteUser")
+| extend TargetUser = tostring(parse_json(RequestParameters).userName)
+| project TimeGenerated, EventName, TargetUser, UserIdentityArn, SourceIpAddress, AWSRegion
+| order by TimeGenerated desc

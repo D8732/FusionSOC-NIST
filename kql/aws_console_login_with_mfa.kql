@@ -1,0 +1,6 @@
+AWSCloudTrail
+| where EventName == "ConsoleLogin" and EventSource == "signin.amazonaws.com"
+| extend Status = tostring(parse_json(ResponseElements).ConsoleLogin)
+| extend MFAUsed = tostring(parse_json(AdditionalEventData).MFAUsed)
+| project TimeGenerated, Status, MFAUsed, UserIdentityArn, SourceIpAddress, AWSRegion
+| order by TimeGenerated desc

@@ -1,0 +1,19 @@
+{
+  "kind": "Scheduled",
+  "properties": {
+    "displayName": "AC-7 \u2013 Windows brute-force (4625)",
+    "description": "Burst of failed logons.",
+    "severity": "High",
+    "enabled": true,
+    "query": "let window = 24h;\nSecurityEvent\n| where TimeGenerated > ago(window)\n| where EventID == 4625\n| summarize Fails = count(), Start = min(TimeGenerated), End = max(TimeGenerated) by Computer, Account, IpAddress\n| where Fails >= 5 and End - Start < 15m\n| order by Fails desc\n",
+    "queryFrequency": "PT1H",
+    "queryPeriod": "PT1H",
+    "triggerOperator": "GreaterThan",
+    "triggerThreshold": 0,
+    "eventGroupingSettings": {
+      "aggregationKind": "SingleAlert"
+    },
+    "tactics": [],
+    "techniques": []
+  }
+}

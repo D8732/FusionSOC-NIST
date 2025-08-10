@@ -1,0 +1,7 @@
+let window = 24h;
+SecurityEvent
+| where TimeGenerated > ago(window)
+| where EventID == 4625
+| summarize Fails = count(), Start = min(TimeGenerated), End = max(TimeGenerated) by Computer, Account, IpAddress
+| where Fails >= 5 and End - Start < 15m
+| order by Fails desc

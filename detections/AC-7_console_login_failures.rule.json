@@ -1,0 +1,19 @@
+{
+  "kind": "Scheduled",
+  "properties": {
+    "displayName": "AC-7 \u2013 AWS Console login failures",
+    "description": "Detect failed console logins.",
+    "severity": "Medium",
+    "enabled": true,
+    "query": "AWSCloudTrail\n| where EventName == \"ConsoleLogin\" and EventSource == \"signin.amazonaws.com\"\n| extend Status = tostring(parse_json(ResponseElements).ConsoleLogin)\n| where Status == \"Failure\"\n| project TimeGenerated, Status, UserIdentityUserName, SourceIpAddress, AWSRegion\n| order by TimeGenerated desc\n",
+    "queryFrequency": "PT1H",
+    "queryPeriod": "PT1H",
+    "triggerOperator": "GreaterThan",
+    "triggerThreshold": 0,
+    "eventGroupingSettings": {
+      "aggregationKind": "SingleAlert"
+    },
+    "tactics": [],
+    "techniques": []
+  }
+}
