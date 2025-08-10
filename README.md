@@ -15,8 +15,10 @@ Extend FusionSOC with **NIST SP 800-53 Rev.5** and **NIST CSF** mappings.
 **Updated:** 2025-08-10
 
 
-Controls Put in Place 
-AC-7 (Unsuccessful Logon Attempts)
+**Controls Put in Place** 
+
+**AC-7 (Unsuccessful Logon Attempts)**
+
 ≥5 Windows 4625 in <15m → incident; AWS ConsoleLogin failures correlated by user/IP; lockout policy/GPO screenshot.
  
  <img width="423" height="566" alt="Screenshot 2025-08-09 120837" src="https://github.com/user-attachments/assets/f35ad327-b7e7-44c4-9e58-a841e6722fe5" />
@@ -29,7 +31,8 @@ Reduces attacker dwell time. Fast alerts let you lock the account or block the s
 Protects high-value identities. Correlating by user and source IP highlights targeted accounts.
 
 
-AC-2 (Account Management)
+**AC-2 (Account Management)**
+
 AWS CreateUser/DeleteUser → Sentinel alert → incident shows target user → automation assigns owner.
 
 <img width="1353" height="500" alt="Screenshot 2025-08-09 134031" src="https://github.com/user-attachments/assets/62c3182a-4d8d-40b3-96b4-8e34c1e7dc2f" />
@@ -40,7 +43,7 @@ AWS CreateUser/DeleteUser → Sentinel alert → incident shows target user → 
 This Control is important because 
 AC-2 ensures you tightly govern the full lifecycle of identities—creation, modification, disabling, and deletion—so only the right people have the right access at the right time. It reduces risk from orphaned/stale accounts and privilege creep, strengthens auditability for compliance, and provides clear hooks for detections
 
-SI-4 (System Monitoring) This Control Covers Command line activity
+**SI-4 (System Monitoring) This Control Covers Command line activity**
 
  Execute Powershell command
 - <img width="1095" height="337" alt="Powershell command generate logs" src="https://github.com/user-attachments/assets/7d31a064-f40c-4c11-bc16-6706924ebee8" />
@@ -49,9 +52,12 @@ This Control helps  makes sure your environment is continuously observed for sus
 
 For phishing emails multiple controls can be of use i'll just name a few 
 
-SI-4 – System Monitoring :  Sentinel rules that detect brand-impersonation, suspicious links, and anomalous sender.
-IR-4 – Incident Handling: Automation rules/playbooks to quarantine messages, notify users, enrich with VirusTotal, and assign an owner.
-SI-3 – Malicious Code Protection: Email security gateway / AV scanning of attachments and URLs (detonation/sandboxing).
-AT-2 – Security Awareness Training: Simulated phishing and just-in-time user education to reduce click-through.
+**SI-4 – System Monitoring :  Sentinel rules that detect brand-impersonation, suspicious links, and anomalous sender.**
+
+**IR-4 – Incident Handling: Automation rules/playbooks to quarantine messages, notify users, enrich with VirusTotal, and assign an owner.**
+
+**SI-3 – Malicious Code Protection: Email security gateway / AV scanning of attachments and URLs (detonation/sandboxing).**
+
+**AT-2 – Security Awareness Training: Simulated phishing and just-in-time user education to reduce click-through.**
 
 <img width="1360" height="767" alt="Suspicious email" src="https://github.com/user-attachments/assets/b1548447-bdeb-4441-9576-7cbadc34f0d5" />
