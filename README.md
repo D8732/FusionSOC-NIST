@@ -22,6 +22,7 @@ AC-7 (Unsuccessful Logon Attempts)
  <img width="423" height="566" alt="Screenshot 2025-08-09 120837" src="https://github.com/user-attachments/assets/f35ad327-b7e7-44c4-9e58-a841e6722fe5" />
  <img width="1321" height="647" alt="Failed logon AWS " src="https://github.com/user-attachments/assets/088937c5-7daa-4c0f-bf99-94f549c70f3a" />
  <img width="1339" height="652" alt="AWS Detection rule failed logon" src="https://github.com/user-attachments/assets/20896e0f-a862-472a-97a5-c62ddc4750a7" />
+ - <img width="1329" height="640" alt="Successful and Unsuccessful logon attempts" src="https://github.com/user-attachments/assets/706a8842-191f-4f16-9249-b555e39f3406" />
 
  This Control is important because it Monitors for bursts of failed sign-ins (e.g., ≥5 Windows 4625 events in 15 minutes and AWS ConsoleLogin failures) and raises an incident, grouped by account/host/IP.
  Catches brute-force/password-spray early. Repeated failures are a classic precursor to compromise.
@@ -38,3 +39,11 @@ AWS CreateUser/DeleteUser → Sentinel alert → incident shows target user → 
 <img width="1346" height="645" alt="Delete users AWS" src="https://github.com/user-attachments/assets/06fcffee-79f6-47b9-9257-847c07f03a97" />
 - <img width="1354" height="681" alt="Screenshot 2025-08-09 134604" src="https://github.com/user-attachments/assets/cdea4e05-0486-49ba-8b07-776983720791" />
   <img width="1352" height="639" alt="IAM detetction rule" src="https://github.com/user-attachments/assets/787ee32e-26de-4597-8f92-310117d2374e" />
+
+This Control is important because 
+AC-2 ensures you tightly govern the full lifecycle of identities—creation, modification, disabling, and deletion—so only the right people have the right access at the right time. It reduces risk from orphaned/stale accounts and privilege creep, strengthens auditability for compliance, and provides clear hooks for detections
+
+SI-4 (System Monitoring)
+
+ Execute Powershell command
+- <img width="1095" height="337" alt="Powershell command generate logs" src="https://github.com/user-attachments/assets/7d31a064-f40c-4c11-bc16-6706924ebee8" />
