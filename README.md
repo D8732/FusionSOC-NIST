@@ -38,7 +38,7 @@ AWS CreateUser/DeleteUser → Sentinel alert → incident shows target user → 
   <img width="1352" height="639" alt="IAM detetction rule" src="https://github.com/user-attachments/assets/787ee32e-26de-4597-8f92-310117d2374e" />
 
 This Control is important because 
-AC-2 ensures you tightly govern the full lifecycle of identities—creation, modification, disabling, and deletion—so only the right people have the right access at the right time. It reduces risk from orphaned/stale accounts and privilege creep, strengthens auditability for compliance, and provides clear hooks for detections
+AC-2 ensures you tightly govern the full lifecycle of identities—creation, modification, disabling, and deletion—so only the right people have the right access at the right time. It reduces risk from stale accounts and privilege creep, strengthens auditability for compliance, and provides clear hooks for detections
 
 **SI-4 (System Monitoring) This Control Covers Command line activity**
 
