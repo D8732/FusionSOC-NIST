@@ -61,3 +61,7 @@ This Control helps  makes sure your environment is continuously observed for sus
 
 <img width="1333" height="636" alt="Virustotal" src="https://github.com/user-attachments/assets/7c32d8a2-538c-4f8b-aa60-037c061e6e4e" />
 
+
+**Author:** Dareis Newton — Winston‑Salem, NC  
+**Updated:** 2025-08-10
+
